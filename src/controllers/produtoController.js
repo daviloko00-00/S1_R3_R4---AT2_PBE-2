@@ -29,8 +29,9 @@ const produtoController = {
     criar: async (req, res) => {
         try {
             const { nome, valor, idCategoria } = req.body;
-            console.log(nome, valor, idCategoria)
-            const caminhoImagem = req.file ? req.file.filename : null;
+            console.log(req.body)
+
+            const caminhoImagem = `uploads/images/${req.file ? req.file.filename : null}`;
             const produto = Produto.criar({
                 nome,
                 valor,
